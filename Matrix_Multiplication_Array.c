@@ -1,28 +1,39 @@
-#include<stdio.h>
-int main(){
-    int a[100];
-    int n;
- printf("Enter the number of elements (max 100): ");
- scanf("%d", &n);
- if (n < 1 || n > 100) {
-        printf("Invalid size! Please enter between 1 and 100.\n");
-        return 1;
-         }
-         printf("Enter %d elements of array a:\n", n);
-    for (int i = 0; i < n; i++) {
-        printf("a[%d] = ", i);
-        scanf("%d", &a[i]);
-    }
-for(int i =0; i < n; i++){
-    for(int j=0; j < n+1; j++){
-        if(a[j]>a[j-1]){
-            int temp = a[j=1];
-            a[j+1] = a[j];
-            a[j] = temp;
-      printf("%d",a[j]); 
-          }
-   
-   }
-}
+#include <stdio.h>
 
+int main() {
+    int a[3][4],b[4][2],result[3][2];
+    int i,j,k;
+    printf("Enter elements of 3x4 Matrix A:\n");
+    for(i=0;i<3;i++){
+        for(j=0;j<4;j++){
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("Enter elements of 4x2 Matrix B:\n");
+    for(i=0;i<4;i++){
+        for(j=0;j<2;j++){
+            scanf("%d",&b[i][j]);
+        }
+    }
+    for(i=0;i<3;i++){
+        for(j=0;j<2;j++){
+            result[i][j]=0;
+        }
+    }
+    for(i=0;i<3;i++){
+        for(j=0;j<2;j++){
+            for(k=0;k<4;k++){
+                result[i][j]+=a[i][k]*b[k][j];
+            }
+        }
+    }
+    printf("\nResultant 3x2 Matrix:\n");
+    for(i=0;i<3;i++){
+        for(j=0;j<2;j++){
+            printf("%d\t",result[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
 }
